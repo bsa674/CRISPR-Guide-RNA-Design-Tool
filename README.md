@@ -18,7 +18,7 @@ This Python-based pipeline is designed for CRISPR guide RNA (gRNA) analysis. Pan
 The input data consists of gRNA sequences extracted from FASTA files, processed with a PAM pattern matching ( "NGG") to identify target sequences. Sequences are enriched with biological features and normalized using scikit-learn's StandardScaler for uniformity. Pre-trained machine learning models, such as ensemble methods, predict the efficacy of each gRNA, with results formatted for downstream analysis.
 
 ## Data Storage and Structure
-Pandas DataFrames store the gRNA data, incorporating features such as sequence length, GC content, entropy, and PAM presence. Results, including predicted efficacy scores, are saved as CSV files to ensure compatibility with external tools and facilitate sharing.
+Pandas DataFrames store the gRNA data, incorporating features such as sequence length, GC content, entropy, and PAM presence. Results, including predicted efficacy scores, are saved as CSV files to ensure compatibility with external tools.
 
 ## User Interface and Accessibility
 Streamlit was used to create a user-friendly interface for uploading FASTA files and viewing the predictions.It allow users to customize experimental parameters and download results.
