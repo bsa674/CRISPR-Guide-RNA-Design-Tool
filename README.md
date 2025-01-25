@@ -20,8 +20,7 @@ Resources like ENCODE, CRISPRBase, and CRISPRBench are ideal, as they offer cura
 
 ### Data Storage and Handling
 
-Will you be using a database system (eg. SQL, MongoDB,...)?
-How will you load and process data, and what libraries do you plan to use for this (eg. pandas/polars, numpy,...)?
+ we used Python tools like Pandas to verify their completeness and structure.  we extracted sequence-based features like GC content, dinucleotide frequency, and potential off-target binding site.
 
 ### User Management
 
