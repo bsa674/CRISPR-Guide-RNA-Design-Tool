@@ -12,29 +12,26 @@ Castor is a tool designed to simplify the gRNA design process in Clustered Regul
 ----
 ## Functionalities
 
- Python libraries such as Pandas and NumPy for data manipulation, scikit-learn for data normalization, and RNAfold for secondary structure prediction. Prediction algorithms with machine learning models like scikit-learn, XGBoost and RandomForest. After model training, for the visualization with Matplotlib and Seaborn. A lightweight web interface is developed using Flask or Streamlit, enabling users to input custom gRNA sequences and experimental conditions, receiving real-time predictions on efficiency scores and feature importance.
+This Python-based pipeline is designed for CRISPR guide RNA (gRNA) analysis. Pandas and NumPy libraries were used for data handling, scikit-learn for preprocessing and predictions, and Matplotlib and Seaborn for visualization. It employs a machine learning model to predict gRNA efficacy based on sequence features such as GC content, entropy, and melting temperature (Tm). Secondary features like k-mer encoding are also included for comprehensive analysis.
 
+## Data Sources and Processing
+The input data consists of gRNA sequences extracted from FASTA files, processed with a PAM pattern matching ( "NGG") to identify target sequences. Sequences are enriched with biological features and normalized using scikit-learn's StandardScaler for uniformity. Pre-trained machine learning models, such as ensemble methods, predict the efficacy of each gRNA, with results formatted for downstream analysis.
 
-### Data Sources and Retrieval
+## Data Storage and Structure
+Pandas DataFrames store the gRNA data, incorporating features such as sequence length, GC content, entropy, and PAM presence. Results, including predicted efficacy scores, are saved as CSV files to ensure compatibility with external tools and facilitate sharing.
 
-Resources like ENCODE, CRISPRBase, and CRISPRBench are ideal, as they offer curated datasets with gRNA sequences and associated efficiency labels.To retrieve the most relevant datasets, we used targeted search terms like “CRISPR gRNA efficiency,” “CRISPR/Cas9 cleavage data,” and “guide RNA performance”. Essential preprocessing steps will involve converting the data to a standard format, normalizing features, handling any missing values, and ensuring consistent annotation across datasets.
+## User Interface and Accessibility
+Streamlitwa sused to create a user-friendly interface for uploading FASTA files and viewing the predictions.It allow users to customize experimental parameters and download results.
 
-### Data Storage and Handling
+## Statistical Analysis and Model Performance
+The efficacy prediction relies on robust statistical techniques and machine learning models. Metrics such as regression accuracy and feature importance are computed to validate model performance across multiple datasets.
 
- we used Python tools like Pandas to verify their completeness and structure.  we extracted sequence-based features like GC content, dinucleotide frequency, and potential off-target binding site.
+## Visualizations
+Comprehensive visualizations using Matplotlib and Seaborn include:
 
-### User Management
-We implemented a secure encryption system using a discrete encryption key to verify user credentials. Each user account will maintain exclusive access to its own data, which will be securely stored and accessible at any time.
-### Interface
-The CRISPR gRNA prediction project will be developed as a web-based application using Python's Streamlit library. Users will start with a login page and dedicated results page will allow users to visualize and analyse gRNA efficiency scores, with results saved to their account for ongoing research. 
-
-### Statistical Analysis
-In the CRISPR gRNA prediction project, we focus on evaluating the performance and reliability of our ensemble model through a detailed statistical analysis.We calculated metrics for each baseline and ensemble model using Python libraries like scikit-learn, averaging results across multiple validation datasets to ensure robustness. 
-
-### Visualizations
-
-We used Python libraries like Matplotlib, Seaborn, and Plotly to create a comprehensive set of visual tools for showcasing our ensemble model's results. Plots will showed predicted versus actual efficiency scores, with regression lines indicating the model's fit quality.
-
+Histograms for predicted efficacy score distributions.
+Correlation heatmaps of biological features.
+Boxplots for key metrics like GC content and sequence entropy.
 
 
 ----
