@@ -23,16 +23,9 @@ Resources like ENCODE, CRISPRBase, and CRISPRBench are ideal, as they offer cura
  we used Python tools like Pandas to verify their completeness and structure.  we extracted sequence-based features like GC content, dinucleotide frequency, and potential off-target binding site.
 
 ### User Management
-
-Will your project have distinct users?
-If so, how do you store and check credentials?
-Are there different roles (eg. customer/admin) with privileges?
-
+We implemented a secure encryption system using a discrete encryption key to verify user credentials. Each user account will maintain exclusive access to its own data, which will be securely stored and accessible at any time.
 ### Interface
-
-What kind of interface are you planning (CLI/GUI)?
-What operating system will it run on, or will it be a web-based app?
-What libraries do you need for this?
+The CRISPR gRNA prediction project will be developed as a web-based application using Python's Streamlit library. Users will start with a login page and dedicated results page will allow users to visualize and analyse gRNA efficiency scores, with results saved to their account for ongoing research. 
 
 ### Statistical Analysis
 
