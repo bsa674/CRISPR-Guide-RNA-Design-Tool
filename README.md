@@ -28,22 +28,17 @@ We implemented a secure encryption system using a discrete encryption key to ver
 The CRISPR gRNA prediction project will be developed as a web-based application using Python's Streamlit library. Users will start with a login page and dedicated results page will allow users to visualize and analyse gRNA efficiency scores, with results saved to their account for ongoing research. 
 
 ### Statistical Analysis
-
-What statistical analyses will you conduct on your data?
-Will specialized libraries be required for this, and if so, which?
-What quintessential point(s)/takeaways are you planning to substantiate?
+In the CRISPR gRNA prediction project, we focus on evaluating the performance and reliability of our ensemble model through a detailed statistical analysis.We calculated metrics for each baseline and ensemble model using Python libraries like scikit-learn, averaging results across multiple validation datasets to ensure robustness. 
 
 ### Visualizations
 
-How can you effectively communicate your takeaways (probably from statistical analysis) visually?
-I.e., what kinds of visual representations are suitable for your project?
-Will they be included in a dashboard-like part of your interface, or non-interactive infographics?
-With what libraries will you implement this?
+We used Python libraries like Matplotlib, Seaborn, and Plotly to create a comprehensive set of visual tools for showcasing our ensemble model's results. Plots will showed predicted versus actual efficiency scores, with regression lines indicating the model's fit quality.
+
+
 
 ----
 ## Installation and Usage
-
-This should inform anyone who looks at your project repository on how they can install and run the project code on their own machine, e.g. by cloning this repository, installing dependencies and running some main script.
+Users will be able to install the necessary libraries with a single command: include Streamlit, and machine learning packages such as scikit-learn. 
 
 ----
 ## Timeline
