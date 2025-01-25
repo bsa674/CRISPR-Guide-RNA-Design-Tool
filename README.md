@@ -16,12 +16,7 @@ The platform comprises two main modules: one dedicated to the design of single g
 
 ### Data Sources and Retrieval
 
-Will your data be sourced
-- From an open dataset (eg. kaggle, data paper,...)
-- Collected from an API or a Webcrawler
-- From your own research
-
-Reference your data source(s) as well as any tools you will use to collect it, such as API libraries, conversion tools etc.
+Resources like ENCODE, CRISPRBase, and CRISPRBench are ideal, as they offer curated datasets with gRNA sequences and associated efficiency labels.To retrieve the most relevant datasets, we used targeted search terms like “CRISPR gRNA efficiency,” “CRISPR/Cas9 cleavage data,” and “guide RNA performance”. Essential preprocessing steps will involve converting the data to a standard format, normalizing features, handling any missing values, and ensuring consistent annotation across datasets.
 
 ### Data Storage and Handling
 
