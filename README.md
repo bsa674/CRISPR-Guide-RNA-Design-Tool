@@ -1,6 +1,6 @@
 # CRISPR-Guide-RNA-Design-Tool
 
-![CASTOR](banner_logo.png)
+![CASTOR](circular_logo.png)
 
 ## Description
 
