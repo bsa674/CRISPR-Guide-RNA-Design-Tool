@@ -60,7 +60,7 @@ Example:
 
 ## Acknowlegdments
 
-Streamlit - Web application framework for creating interactive data apps.
+Streamlit - Web application framework for creating interactive data app
 Documentation: https://docs.streamlit.io/
 Pandas - Data manipulation and analysis library.
 Documentation: https://pandas.pydata.org/
@@ -73,26 +73,26 @@ XGBoost - Scalable machine learning library for gradient boosting.
 Documentation: https://xgboost.readthedocs.io/
 
 ## Data Repositories & Resources
-ENCODE (Encyclopedia of DNA Elements)
+1)ENCODE (Encyclopedia of DNA Elements)
 Website: https://www.encodeproject.org/
-CRISPRBase - Repository for CRISPR research data.
+2)CRISPRBase - Repository for CRISPR research data.
 Website: https://www.crisprbase.com/
-GEO (Gene Expression Omnibus) - Database for functional genomics data.
+3)GEO (Gene Expression Omnibus) - Database for functional genomics data.
 Website: https://www.ncbi.nlm.nih.gov/geo/
-SRA (Sequence Read Archive) - Repository for raw sequencing data.
+4)SRA (Sequence Read Archive) - Repository for raw sequencing data.
 Website: https://www.ncbi.nlm.nih.gov/sra
-Figshare - General-purpose repository for scientific datasets.
+5)Figshare - General-purpose repository for scientific datasets.
 Website: https://figshare.com/
 
 
 ## Relevant Publications
-Chen, Y., & Wang, X. (2022). Evaluation of efficiency prediction algorithms and development of ensemble model for CRISPR/Cas9 gRNA selection. Bioinformatics, 38(23), 5175-5181.
+1) Chen, Y., & Wang, X. (2022). Evaluation of efficiency prediction algorithms and development of ensemble model for CRISPR/Cas9 gRNA selection. Bioinformatics, 38(23), 5175-5181.
 DOI: https://doi.org/10.1093/bioinformatics/btac681
-Doudna, J.A., & Charpentier, E. (2014). The new frontier of genome engineering with CRISPR-Cas9. Science, 346(6213), 1258096.
+2) Doudna, J.A., & Charpentier, E. (2014). The new frontier of genome engineering with CRISPR-Cas9. Science, 346(6213), 1258096.
 DOI: https://doi.org/10.1126/science.1258096
-Doench, J.G., et al. (2016). Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9. Nature Biotechnology, 34, 184-191.
+3) Doench, J.G., et al. (2016). Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9. Nature Biotechnology, 34, 184-191.
 DOI: https://doi.org/10.1038/nbt.3437
-Konstantakos, V., et al. (2022). CRISPR-Cas9 gRNA efficiency prediction: an overview of predictive tools and the role of deep learning. Nucleic Acids Research, 50, 3616-3637.
+4) Konstantakos, V., et al. (2022). CRISPR-Cas9 gRNA efficiency prediction: an overview of predictive tools and the role of deep learning. Nucleic Acids Research, 50, 3616-3637.
 DOI: https://doi.org/10.1093/nar/gkab1114
-Kim, H.K., et al. (2019). SpCas9 activity prediction by DeepSpCas9, a deep learning-based model with high generalization performance. Science Advances, 5(11), eaax9249.
+5) Kim, H.K., et al. (2019). SpCas9 activity prediction by DeepSpCas9, a deep learning-based model with high generalization performance. Science Advances, 5(11), eaax9249.
 DOI: https://doi.org/10.1126/sciadv.aax9249
