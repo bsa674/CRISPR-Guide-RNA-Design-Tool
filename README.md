@@ -11,8 +11,8 @@ The platform comprises two main modules: one dedicated to the design of single g
 ----
 ## Functionalities
 
-Add your plans (with external libraries if you plan on using any) for any of these subsections, if applicable to your project.
-As mentioned in the **outline document**, at least 60% of these have to be implemented.
+ Python libraries such as Pandas and NumPy for data manipulation, scikit-learn for data normalization, and RNAfold for secondary structure prediction. Prediction algorithms with machine learning models like scikit-learn, XGBoost and RandomForest. After model training, for the visualization with Matplotlib and Seaborn. A lightweight web interface is developed using Flask or Streamlit, enabling users to input custom gRNA sequences and experimental conditions, receiving real-time predictions on efficiency scores and feature importance.
+
 
 ### Data Sources and Retrieval
 
