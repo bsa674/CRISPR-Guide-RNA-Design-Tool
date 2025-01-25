@@ -4,9 +4,7 @@
 
 ## Description
 
-Clustered Regularly Interspaced Short Palindromic Repeats (CRISPR)-associated protein 9 (Cas9) is a powerful genome editing tool utilized across a wide range of organisms, from prokaryotes to humans. A crucial component of this system is the guide RNA (gRNA), which directs the CRISPR complex to its target sequence. However, two primary challenges need to be addressed: ensuring target specificity and maximizing cleavage efficiency.
-Although significant progress has been made in selecting effective gRNAs through machine learning and deep learning techniques, there remains a gap in integrating these advanced algorithms into accessible and user-friendly platforms. To address this, we are developing Castor—a streamlined tool designed to simplify the gRNA design process for researchers. Castor incorporates established algorithms in an intuitive environment, making the process of designing and evaluating gRNAs both efficient and widely accessible.
-The platform comprises two main modules: one dedicated to the design of single guide RNAs (sgRNAs) and another focused on assessing their efficiency. This dual-module system aims to deliver a comprehensive and user-friendly solution for gRNA design and validation, facilitating broader application and research in genome editing.
+Castor is a tool designed to simplify the gRNA design process in Clustered Regularly Interspaced Short Palindromic Repeats (CRISPR)-associated protein 9 (Cas9) projects. The platform comprises two modules: one dedicated to the design of single guide RNAs (sgRNAs) and another focused on assessing their efficiency using ML models. 
 
 ----
 ## Functionalities
