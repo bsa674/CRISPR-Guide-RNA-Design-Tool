@@ -52,16 +52,16 @@ Example:
 
 ## Acknowlegdments
 
-Streamlit - Web application framework for creating interactive data app
-Documentation: https://docs.streamlit.io/
-Pandas - Data manipulation and analysis library.
-Documentation: https://pandas.pydata.org/
-Matplotlib and Seaborn - Libraries for data visualization in Python.
-Matplotlib: https://matplotlib.org/
-Seaborn: https://seaborn.pydata.org/
-scikit-learn - Machine learning library for Python.
-Documentation: https://scikit-learn.org/
-XGBoost - Scalable machine learning library for gradient boosting.
+- Streamlit - Web application framework for creating interactive data app
+- Documentation: https://docs.streamlit.io/
+- Pandas - Data manipulation and analysis library.
+- Documentation: https://pandas.pydata.org/
+- Matplotlib and Seaborn - Libraries for data visualization in Python.
+- Matplotlib: https://matplotlib.org/
+- Seaborn: https://seaborn.pydata.org/
+- scikit-learn - Machine learning library for Python.
+- Documentation: https://scikit-learn.org/
+- XGBoost - Scalable machine learning library for gradient boosting.
 Documentation: https://xgboost.readthedocs.io/
 
 ## Data Repositories & Resources
