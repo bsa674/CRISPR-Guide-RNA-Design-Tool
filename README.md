@@ -44,7 +44,6 @@ Users will be able to install the necessary libraries with a single command: inc
 ----
 ## Timeline
 ![An example schedule](timeline.png)
-
 ## Group Details
 Example:
 - Group name: CRISPR
