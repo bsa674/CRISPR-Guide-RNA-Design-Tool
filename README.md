@@ -50,27 +50,49 @@ This can also help you and the tutors to make sure the development does not go o
 
 ----
 ## Group Details
-
-Here, you should provide a group name you want to be referred to as, as well as the names (and optionally contact info) of all group members.
-Additionally, define a group leader, i.e. one person in your group that is the primary contact if tutors want to communicate with your group.
-Also mention here which tutor is assigned to your project.
-
 Example:
-- Group name: 
-- Group code: 
-- Group repository: 
-- Tutor responsible:  
-- Group team leader: 
-- Group members:
+- Group name: CRISPR
+- Group code: G18
+- Group repository: https://github.com/bsa674/CRISPR-Guide-RNA-Design-Too
+- Tutor responsible: Frederik Hennecke
+- Group team leader: Samanta Bishal
+- Group members:Agrawal Raghvendra, Aslan Zeynep, Carvajal Mateo, Alarcón Pablo
 
-Include also the (detailed) contribution of each group member to the development of the project.
-
-Example:
-**Member A**: Developed the data structure of the project. Helped _Member B_ on the web interface and user management. Refactoring on components X, Y, and Z. Responsible for the unit tests in P ant T.
-
-----
 ## Acknowlegdments
 
-Here, you can (and should) mention all libraries you used, data sources, as well as other credits such as inspirations for your projects, papers that helped with your methodology or similar things.
+Streamlit - Web application framework for creating interactive data apps.
+Documentation: https://docs.streamlit.io/
+Pandas - Data manipulation and analysis library.
+Documentation: https://pandas.pydata.org/
+Matplotlib and Seaborn - Libraries for data visualization in Python.
+Matplotlib: https://matplotlib.org/
+Seaborn: https://seaborn.pydata.org/
+scikit-learn - Machine learning library for Python.
+Documentation: https://scikit-learn.org/
+XGBoost - Scalable machine learning library for gradient boosting.
+Documentation: https://xgboost.readthedocs.io/
 
-If you want, you can create subsections for all of these, or just create bullet-points for it. If possible, provide a link to the original source(s).
+## Data Repositories & Resources
+ENCODE (Encyclopedia of DNA Elements)
+Website: https://www.encodeproject.org/
+CRISPRBase - Repository for CRISPR research data.
+Website: https://www.crisprbase.com/
+GEO (Gene Expression Omnibus) - Database for functional genomics data.
+Website: https://www.ncbi.nlm.nih.gov/geo/
+SRA (Sequence Read Archive) - Repository for raw sequencing data.
+Website: https://www.ncbi.nlm.nih.gov/sra
+Figshare - General-purpose repository for scientific datasets.
+Website: https://figshare.com/
+
+
+## Relevant Publications
+Chen, Y., & Wang, X. (2022). Evaluation of efficiency prediction algorithms and development of ensemble model for CRISPR/Cas9 gRNA selection. Bioinformatics, 38(23), 5175-5181.
+DOI: https://doi.org/10.1093/bioinformatics/btac681
+Doudna, J.A., & Charpentier, E. (2014). The new frontier of genome engineering with CRISPR-Cas9. Science, 346(6213), 1258096.
+DOI: https://doi.org/10.1126/science.1258096
+Doench, J.G., et al. (2016). Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9. Nature Biotechnology, 34, 184-191.
+DOI: https://doi.org/10.1038/nbt.3437
+Konstantakos, V., et al. (2022). CRISPR-Cas9 gRNA efficiency prediction: an overview of predictive tools and the role of deep learning. Nucleic Acids Research, 50, 3616-3637.
+DOI: https://doi.org/10.1093/nar/gkab1114
+Kim, H.K., et al. (2019). SpCas9 activity prediction by DeepSpCas9, a deep learning-based model with high generalization performance. Science Advances, 5(11), eaax9249.
+DOI: https://doi.org/10.1126/sciadv.aax9249
