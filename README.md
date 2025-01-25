@@ -76,15 +76,15 @@ XGBoost - Scalable machine learning library for gradient boosting.
 Documentation: https://xgboost.readthedocs.io/
 
 ## Data Repositories & Resources
-1)ENCODE (Encyclopedia of DNA Elements)
+1) ENCODE (Encyclopedia of DNA Elements)
 Website: https://www.encodeproject.org/
-2)CRISPRBase - Repository for CRISPR research data.
+2) CRISPRBase - Repository for CRISPR research data.
 Website: https://www.crisprbase.com/
-3)GEO (Gene Expression Omnibus) - Database for functional genomics data.
+3) GEO (Gene Expression Omnibus) - Database for functional genomics data.
 Website: https://www.ncbi.nlm.nih.gov/geo/
-4)SRA (Sequence Read Archive) - Repository for raw sequencing data.
+4) SRA (Sequence Read Archive) - Repository for raw sequencing data.
 Website: https://www.ncbi.nlm.nih.gov/sra
-5)Figshare - General-purpose repository for scientific datasets.
+5) Figshare - General-purpose repository for scientific datasets.
 Website: https://figshare.com/
 
 
