@@ -21,7 +21,7 @@ The input data consists of gRNA sequences extracted from FASTA files, processed 
 Pandas DataFrames store the gRNA data, incorporating features such as sequence length, GC content, entropy, and PAM presence. Results, including predicted efficacy scores, are saved as CSV files to ensure compatibility with external tools and facilitate sharing.
 
 ## User Interface and Accessibility
-Streamlitwa sused to create a user-friendly interface for uploading FASTA files and viewing the predictions.It allow users to customize experimental parameters and download results.
+Streamlit wascused to create a user-friendly interface for uploading FASTA files and viewing the predictions.It allow users to customize experimental parameters and download results.
 
 ## Statistical Analysis and Model Performance
 The efficacy prediction relies on robust statistical techniques and machine learning models. Metrics such as regression accuracy and feature importance are computed to validate model performance across multiple datasets.
