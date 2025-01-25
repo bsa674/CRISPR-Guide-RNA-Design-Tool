@@ -1,7 +1,8 @@
 # CRISPR-Guide-RNA-Design-Tool
 
-![CASTOR](circular_logo.png)
-
+<p align="center">
+ 
+<img src="circular_logo.png" align="center" width="300" height="300" >
 ## Description
 
 Castor is a tool designed to simplify the gRNA design process in Clustered Regularly Interspaced Short Palindromic Repeats (CRISPR)-associated protein 9 (Cas9) projects. The platform identifies gRNA sequences from input FASTA files based on specified PAM patterns and ranks them by predicted performance using a pre-trained ML model. The outputs include **predicted efficacy scores** for guide RNAs (gRNAs), **annotated gRNA data with biological features** (e.g., GC content, entropy, Tm), and visualizations such as **efficacy score distributions**, feature correlations, and boxplots. IThe results are saved to a CSV file for further analysis, and detailed logs ensure reproducibility and debugging support.
