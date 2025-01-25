@@ -36,7 +36,8 @@ Boxplots for key metrics like GC content and sequence entropy.
 
 ----
 ## Installation and Usage
-Users will be able to install the necessary libraries with a single command: include Streamlit, and machine learning packages such as scikit-learn. 
+
+The whole program will function as a web interface once the project is fully developed and deployed on a server.
 
 ----
 ## Timeline
