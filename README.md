@@ -49,7 +49,13 @@ Example:
 - Group repository: https://github.com/bsa674/CRISPR-Guide-RNA-Design-Too
 - Tutor responsible: Frederik Hennecke
 - Group team leader: Samanta Bishal
-- Group members:Agrawal Raghvendra, Aslan Zeynep, Carvajal Mateo, Alarcón Pablo
+- Group members and contribution:
+
+**Samanta Bishal**: Project Lead, organization, machine Learning development, and database curation
+**Mateo Carvajal**: Assisted in searching and compiling the database for model training, code for the model's usage and visualization.
+**Zeynep Aslan**: Helped in database curation and  developed the code for model usage, including prediction and visualization tools.
+**Pablo Alarcón**: User-friendly web interface, user account management, including authentication and user profile systems
+**Raghvendra Agrawal**: User-friendly web interface, helped implemented statistical analysis and dynamic visualization features for the web interface.
 
 ## Acknowlegdments
 
