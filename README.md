@@ -12,7 +12,7 @@ Castor is a tool designed to simplify the gRNA design process in Clustered Regul
 ----
 ## Functionalities
 
-This Python-based pipeline is designed for CRISPR guide RNA (gRNA) analysis. Pandas and NumPy libraries were used for data handling, scikit-learn for preprocessing and predictions, and Matplotlib and Seaborn for visualization. It employs a machine learning model to predict gRNA efficacy based on sequence features such as GC content, entropy, and melting temperature (Tm). Secondary features like k-mer encoding are also included for comprehensive analysis.
+This Python-based pipeline is designed for CRISPR guide RNA (gRNA) analysis. It utilizes Pandas and NumPy for data handling, ViennaRNA (RNA module) for RNA secondary structure prediction, and Plotly for interactive visualizations. A machine learning ensemble model, combining Random Forest and XGBoost, predicts gRNA efficacy based on extracted RNA structural and sequence-based features, including minimum free energy (MFE), base-pairing probabilities, ensemble free energy, and helical structure properties.
 
 ## Data Sources and Processing
 
