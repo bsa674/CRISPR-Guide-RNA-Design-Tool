@@ -85,7 +85,7 @@ A **feature correlation matrix** was created to visualize the relationships betw
 All visualizations, including the top 10 k-mers, feature distribution plots, and correlation matrix, are available for users to download and save to their local systems for further analysis or reporting.
 
 
-This pipeline provides an efficient and interpretable framework for gRNA efficacy prediction and CRISPR guide design.
+## This pipeline provides an efficient and interpretable framework for gRNA efficacy prediction and CRISPR guide design.
 
 ----
 ## Installation and Usage
