@@ -34,11 +34,19 @@ For user input, the model accepts a single FASTA sequence. The sequence is proce
 This pipeline ensures accurate and efficient prediction of gRNA efficacy based on user-provided sequences.
 
 ## Data Storage and Structure
-The ensemble model (Random Forest + XGBoost) ensures robust efficacy prediction. Key performance metrics include:
 
-- Regression accuracy (R², RMSE, MAE)
-- Feature importance analysis (identifying the most influential sequence properties)
-- Cross-validation across multiple datasets to assess model generalization
+### Training Data
+The original dataset used for training the model is stored as a CSV file in the local directory. The file contains two columns:
+- **gRNA**: The guide RNA sequences.
+- **Efficacy Scores**: The corresponding efficacy scores for each gRNA.
+
+### Prediction Results
+The results generated after running predictions are also saved locally on the system for easy access and downloading.
+
+### User Account Credentials
+User account credentials are securely stored on a Firebase server. All sensitive information is encrypted to ensure data privacy and security.
+
+For more details, refer to the code and documentation in the repository.
 ## User Interface and Accessibility
 A **Streamlit**-based web application provides a user-friendly interface for:
 
