@@ -7,7 +7,7 @@
 
 ## Description
 
-Castor is a tool designed to simplify the gRNA design process in Clustered Regularly Interspaced Short Palindromic Repeats (CRISPR)-associated protein 9 (Cas9) projects. The platform identifies gRNA sequences from input FASTA files based on specified PAM patterns and ranks them by predicted performance using a pre-trained ML model. The outputs include **predicted efficacy scores** for guide RNAs (gRNAs), **annotated gRNA data with biological features** (e.g., GC content, entropy, Tm), and visualizations such as **efficacy score distributions**, feature correlations, and boxplots. The results are saved to a CSV file for further analysis, and detailed logs ensure reproducibility and debugging support.
+Castor is a tool designed to simplify the gRNA design process in Clustered Regularly Interspaced Short Palindromic Repeats (CRISPR)-associated protein 9 (Cas9) projects. The platform identifies gRNA sequences from input FASTA files based on specified PAM patterns and ranks them by predicted performance using a pre-trained ML model. The outputs include **predicted efficacy scores** for guide RNAs (gRNAs), **annotated gRNA data with biological features** (e.g., Minimized Free Energy, Average Base-Pairing probability, Ensemble Energy), and visualizations such as **feature plots distributions**, feature correlations. The results are saved to a CSV file for further analysis, and detailed logs ensure reproducibility and debugging support.
 
 ----
 ## Functionalities
@@ -15,7 +15,23 @@ Castor is a tool designed to simplify the gRNA design process in Clustered Regul
 This Python-based pipeline is designed for CRISPR guide RNA (gRNA) analysis. Pandas and NumPy libraries were used for data handling, scikit-learn for preprocessing and predictions, and Matplotlib and Seaborn for visualization. It employs a machine learning model to predict gRNA efficacy based on sequence features such as GC content, entropy, and melting temperature (Tm). Secondary features like k-mer encoding are also included for comprehensive analysis.
 
 ## Data Sources and Processing
-The input data consists of gRNA sequences extracted from FASTA files, processed with a PAM pattern matching ( "NGG") to identify target sequences. Sequences are enriched with biological features and normalized using scikit-learn's StandardScaler for uniformity. Pre-trained machine learning models, such as ensemble methods, predict the efficacy of each gRNA, with results formatted for downstream analysis.
+
+### Model Creation
+To develop the model, we utilized a curated dataset sourced from various databases and publications. The dataset is stored in a CSV file containing two primary columns: 
+- **gRNA sequences**: The guide RNA sequences.
+- **Efficacy scores**: The corresponding efficacy scores for each gRNA sequence.
+
+The gRNA sequences were enriched with biological features and encoded using one-hot encoding to create a comprehensive feature matrix. This matrix served as the input for our machine learning model.
+
+We employed a **Stacking-Ensemble regressor model**, which combines the strengths of **Random Forest** and **XGBoost** algorithms, to predict the efficacy scores based on the input features.
+
+### User Input Processing
+For user input, the model accepts a single FASTA sequence. The sequence is processed as follows:
+1. **Sequence Breakdown**: The input sequence is divided into 23-mer subsequences, each ending with a **PAM sequence**.
+2. **Feature Extraction**: The same biological features used during model training are calculated for each 23-mer subsequence.
+3. **Prediction**: The pre-trained Stacking-Ensemble regressor model is then used to predict the efficacy scores for each subsequence.
+
+This pipeline ensures accurate and efficient prediction of gRNA efficacy based on user-provided sequences.
 
 ## Data Storage and Structure
 Pandas DataFrames store the gRNA data, incorporating features such as sequence length, GC content, entropy, and PAM presence. Results, including predicted efficacy scores, are saved as CSV files to ensure compatibility with external tools.
