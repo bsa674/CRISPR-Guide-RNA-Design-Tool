@@ -7,12 +7,16 @@
 
 ## Description
 
-Castor is a tool designed to simplify the gRNA design process in Clustered Regularly Interspaced Short Palindromic Repeats (CRISPR)-associated protein 9 (Cas9) projects. The platform identifies gRNA sequences from input FASTA files based on specified PAM patterns and ranks them by predicted performance using a pre-trained ML model. The outputs include **predicted efficacy scores** for guide RNAs (gRNAs), **annotated gRNA data with biological features** (e.g., Minimized Free Energy, Average Base-Pairing probability, Ensemble Energy), and visualizations such as **feature plots distributions**, feature correlations. The results are saved to a CSV file for further analysis, and detailed logs ensure reproducibility and debugging support.
+Castor is an innovative platform designed to simplify and optimize the process of guide RNA (gRNA) design for CRISPR-Cas9 genome editing projects. By integrating advanced machine learning (ML) algorithms and bioinformatics tools, Castor automates the identification of gRNA sequences from input FASTA files, ensuring compatibility with user-specified Protospacer Adjacent Motif (PAM) patterns. The platform ranks these gRNA sequences based on predicted efficacy using a pre-trained ML model, providing researchers with reliable performance scores to guide their selection. 
+
+In addition to efficacy predictions, Castor annotates each gRNA with critical biological features, such as Minimized Free Energy (MFE), Average Base-Pairing Probability, and Ensemble Energy, offering deeper insights into the molecular characteristics of the designed gRNAs. To further enhance usability, the platform generates comprehensive visualizations, including feature distribution plots and correlation matrices, enabling researchers to explore and interpret the data effectively. Castor also prioritizes reproducibility and transparency by maintaining detailed logs throughout the process, ensuring that every step of the gRNA design process is traceable and debuggable. 
+
+With its user-friendly interface, robust analytical capabilities, and emphasis on reproducibility, Castor is an essential tool for researchers seeking to streamline and enhance the efficiency of their CRISPR-Cas9 genome editing projects.
 
 ----
 ## Functionalities
 
-This Python-based pipeline is designed for CRISPR guide RNA (gRNA) analysis. It utilizes Pandas and NumPy for data handling, ViennaRNA (RNA module) for RNA secondary structure prediction, and Plotly for interactive visualizations. A machine learning ensemble model, combining Random Forest and XGBoost, predicts gRNA efficacy based on extracted RNA structural and sequence-based features, including minimum free energy (MFE), base-pairing probabilities, ensemble free energy, and helical structure properties.
+This Python-based pipeline is designed for **CRISPR guide RNA (gRNA) analysis**, combining bioinformatics and machine learning to predict gRNA efficacy. It utilizes **Pandas** and **NumPy** for data handling, **ViennaRNA** for RNA secondary structure prediction, and **Plotly** for interactive visualizations. A **stacking ensemble model**, integrating **Random Forest** and **XGBoost**, predicts gRNA efficacy based on extracted features such as minimum free energy (MFE), base-pairing probabilities, and helical properties. The pipeline includes a **Streamlit-based web application** for user-friendly interaction, enabling users to upload FASTA files, customize parameters, view predictions, and download results and visualizations. Designed for both computational and experimental researchers, this tool provides a comprehensive solution for gRNA analysis and efficacy prediction.
 
 ## Data Sources and Processing
 
