@@ -16,7 +16,7 @@ This Python-based pipeline is designed for CRISPR guide RNA (gRNA) analysis. It 
 
 ## Data Sources and Processing
 
-### Model Creation
+#### Model Creation
 To develop the model, we utilized a curated dataset sourced from various databases and publications. The dataset is stored in a CSV file containing two primary columns: 
 - **gRNA sequences**: The guide RNA sequences.
 - **Efficacy scores**: The corresponding efficacy scores for each gRNA sequence.
@@ -25,7 +25,7 @@ The gRNA sequences were enriched with biological features and encoded using one-
 
 We employed a **Stacking-Ensemble regressor model**, which combines the strengths of **Random Forest** and **XGBoost** algorithms, to predict the efficacy scores based on the input features.
 
-### User Input Processing
+#### User Input Processing
 For user input, the model accepts a single FASTA sequence. The sequence is processed as follows:
 1. **Sequence Breakdown**: The input sequence is divided into 23-mer subsequences, each ending with a **PAM sequence**.
 2. **Feature Extraction**: The same biological features used during model training are calculated for each 23-mer subsequence.
@@ -35,18 +35,18 @@ This pipeline ensures accurate and efficient prediction of gRNA efficacy based o
 
 ## Data Storage and Structure
 
-### Training Data
+#### Training Data
 The original dataset used for training the model is stored as a CSV file in the local directory. The file contains two columns:
 - **gRNA**: The guide RNA sequences.
 - **Efficacy Scores**: The corresponding efficacy scores for each gRNA.
 
-### Prediction Results
+#### Prediction Results
 The results generated after running predictions are also saved locally on the system for easy access and further analysis.
 
-### Stacking Ensemble Model
+#### Stacking Ensemble Model
 The trained stacking ensemble model is saved as a **pickle file** (`stacking_model.pkl`) in the local directory. This allows for easy loading and reuse of the model for future predictions without retraining.
 
-### User Account Credentials
+#### User Account Credentials
 User account credentials are securely stored on a Firebase server. All sensitive information is encrypted to ensure data privacy and security.
 
 
@@ -54,24 +54,24 @@ User account credentials are securely stored on a Firebase server. All sensitive
 
 A **Streamlit**-based web application has been developed to provide a user-friendly and interactive interface for CRISPR-Cas prediction. The application includes the following features:
 
-### User Authentication
+#### User Authentication
 - **Login**: Users can securely log in to access their accounts and projects.
 - **Create Account**: New users can easily create an account to start using the application.
 - **Forgot Password**: Users can reset their password in case they forget it.
 - **Forgot Username**: Users can retrieve their username if needed.
 
-### Project Management
+#### Project Management
 - **Create Projects**: Users can create and manage multiple projects to organize their data and predictions efficiently.
 
-### Data Upload and Customization
+#### Data Upload and Customization
 - **Upload FASTA Files**: Users can upload their FASTA files containing gRNA sequences for analysis.
 
-### Predictions and Visualizations
+#### Predictions and Visualizations
 - **View Predictions**: Users can view the predicted efficacy scores for their uploaded sequences.
 - **Download Predictions**: Users can download the prediction results in a CSV format for further analysis.
 - **Download Visualizations**: All visualizations, including the top 10 k-mers, feature distribution plots, and correlation matrix, are available for download.
 
-### Accessibility
+#### Accessibility
 The application is designed to be accessible to both **computational** and **experimental researchers**, ensuring a seamless experience for users with varying levels of technical expertise.
 
 
@@ -89,16 +89,16 @@ These metrics and visualizations provide a comprehensive understanding of the mo
 
 ## Visualizations
 
-### Top 10 k-mers
+#### Top 10 k-mers
 The **top 10 k-mers** with the highest efficacy scores were identified and visualized. These k-mers represent the most effective sequences based on the user-provided data for CRISPR-Cas prediction. This visualization helps users understand which k-mers are likely to perform best in their experiments.
 
-### Feature Distribution Plots
+#### Feature Distribution Plots
 Interactive **feature distribution plots** were generated using **Plotly**. These include histograms for all features, allowing users to explore the distribution of each feature in the dataset. The interactive nature of the plots enables users to zoom, hover, and analyze the data in detail.
 
-### Feature Correlation Matrix
+#### Feature Correlation Matrix
 A **feature correlation matrix** was created to visualize the relationships between different features in the dataset. This helps in identifying potential multicollinearity and understanding how features interact with each other.
 
-### Downloadable Visualizations
+#### Downloadable Visualizations
 All visualizations, including the top 10 k-mers, feature distribution plots, and correlation matrix, are available for users to download and save to their local systems for further analysis or reporting.
 
 
