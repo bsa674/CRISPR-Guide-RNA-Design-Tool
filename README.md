@@ -34,21 +34,28 @@ For user input, the model accepts a single FASTA sequence. The sequence is proce
 This pipeline ensures accurate and efficient prediction of gRNA efficacy based on user-provided sequences.
 
 ## Data Storage and Structure
-Pandas DataFrames store the gRNA data, incorporating features such as sequence length, GC content, entropy, and PAM presence. Results, including predicted efficacy scores, are saved as CSV files to ensure compatibility with external tools.
+The ensemble model (Random Forest + XGBoost) ensures robust efficacy prediction. Key performance metrics include:
 
+- Regression accuracy (R², RMSE, MAE)
+- Feature importance analysis (identifying the most influential sequence properties)
+- Cross-validation across multiple datasets to assess model generalization
 ## User Interface and Accessibility
-Streamlit was used to create a user-friendly interface for uploading FASTA files and viewing the predictions.It allow users to customize experimental parameters and download results.
+A **Streamlit**-based web application provides a user-friendly interface for:
 
+- Uploading FASTA files
+- Customizing experimental parameters
+- Viewing and downloading predictions
+This ensures accessibility for both computational and experimental researchers.
 ## Statistical Analysis and Model Performance
 The efficacy prediction relies on robust statistical techniques and machine learning models. Metrics such as regression accuracy and feature importance are computed to validate model performance across multiple datasets.
 
 ## Visualizations
-Comprehensive visualizations using Matplotlib and Seaborn include:
+Comprehensive visualizations using Plotly include:
+- Histograms + Boxplots for predicted efficacy score distributions
+- Correlation heatmaps of biological and structural features
+- Feature importance plots highlighting key contributors to gRNA efficacy
 
-Histograms for predicted efficacy score distributions.
-Correlation heatmaps of biological features.
-Boxplots for key metrics like GC content and sequence entropy.
-
+This pipeline provides an efficient and interpretable framework for gRNA efficacy prediction and CRISPR guide design.
 
 ----
 ## Installation and Usage
