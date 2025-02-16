@@ -60,8 +60,18 @@ This pipeline provides an efficient and interpretable framework for gRNA efficac
 ----
 ## Installation and Usage
 
-The whole program will function as a web interface once the project is fully developed and deployed on a server.
+To set up and run this pipeline, follow these steps:  
 
+1. **Clone the GitHub Repository**:  
+   ```bash
+   git clone <repository_url>
+   cd <repository_directory>
+    ```
+2. **Install Dependencies**:
+The required dependencies are listed in the provided dependencies file. Install them using:
+ ```bash
+  pip install -r requirements.txt
+ ```
 ----
 ## Timeline
 ![An example schedule](timeline.png)
