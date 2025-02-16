@@ -49,14 +49,31 @@ The trained stacking ensemble model is saved as a **pickle file** (`stacking_mod
 ### User Account Credentials
 User account credentials are securely stored on a Firebase server. All sensitive information is encrypted to ensure data privacy and security.
 
-For more details, refer to the code and documentation in the repository.
-## User Interface and Accessibility
-A **Streamlit**-based web application provides a user-friendly interface for:
 
-- Uploading FASTA files
-- Customizing experimental parameters
-- Viewing and downloading predictions
-This ensures accessibility for both computational and experimental researchers.
+## User Interface and Accessibility
+
+A **Streamlit**-based web application has been developed to provide a user-friendly and interactive interface for CRISPR-Cas prediction. The application includes the following features:
+
+### User Authentication
+- **Login**: Users can securely log in to access their accounts and projects.
+- **Create Account**: New users can easily create an account to start using the application.
+- **Forgot Password**: Users can reset their password in case they forget it.
+- **Forgot Username**: Users can retrieve their username if needed.
+
+### Project Management
+- **Create Projects**: Users can create and manage multiple projects to organize their data and predictions efficiently.
+
+### Data Upload and Customization
+- **Upload FASTA Files**: Users can upload their FASTA files containing gRNA sequences for analysis.
+
+### Predictions and Visualizations
+- **View Predictions**: Users can view the predicted efficacy scores for their uploaded sequences.
+- **Download Predictions**: Users can download the prediction results in a CSV format for further analysis.
+- **Download Visualizations**: All visualizations, including the top 10 k-mers, feature distribution plots, and correlation matrix, are available for download.
+
+### Accessibility
+The application is designed to be accessible to both **computational** and **experimental researchers**, ensuring a seamless experience for users with varying levels of technical expertise.
+
 
 ## Statistical Analysis and Model Performance
 
@@ -68,7 +85,7 @@ A **Stacking Ensemble Model** was developed using **Random Forest** and **XGBoos
 
 Additionally, **Actual vs Predicted Efficacy Plots** were generated to visually analyze the model's performance and the alignment between predicted and actual efficacy scores.
 
-These metrics and visualizations provide a comprehensive understanding of the model's accuracy and effectiveness in predicting gRNA efficacy. For detailed results and implementation, refer to the code and documentation in the repository.
+These metrics and visualizations provide a comprehensive understanding of the model's accuracy and effectiveness in predicting gRNA efficacy.
 
 ## Visualizations
 
@@ -85,7 +102,7 @@ A **feature correlation matrix** was created to visualize the relationships betw
 All visualizations, including the top 10 k-mers, feature distribution plots, and correlation matrix, are available for users to download and save to their local systems for further analysis or reporting.
 
 
-# This pipeline provides an efficient and interpretable framework for gRNA efficacy prediction and CRISPR guide design.
+### This pipeline provides an efficient and interpretable framework for gRNA efficacy prediction and CRISPR guide design.
 
 ----
 ## Installation and Usage
