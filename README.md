@@ -41,7 +41,10 @@ The original dataset used for training the model is stored as a CSV file in the 
 - **Efficacy Scores**: The corresponding efficacy scores for each gRNA.
 
 ### Prediction Results
-The results generated after running predictions are also saved locally on the system for easy access and downloading.
+The results generated after running predictions are also saved locally on the system for easy access and further analysis.
+
+### Stacking Ensemble Model
+The trained stacking ensemble model is saved as a **pickle file** (`stacking_model.pkl`) in the local directory. This allows for easy loading and reuse of the model for future predictions without retraining.
 
 ### User Account Credentials
 User account credentials are securely stored on a Firebase server. All sensitive information is encrypted to ensure data privacy and security.
@@ -54,14 +57,33 @@ A **Streamlit**-based web application provides a user-friendly interface for:
 - Customizing experimental parameters
 - Viewing and downloading predictions
 This ensures accessibility for both computational and experimental researchers.
+
 ## Statistical Analysis and Model Performance
-The efficacy prediction relies on robust statistical techniques and machine learning models. Metrics such as regression accuracy and feature importance are computed to validate model performance across multiple datasets.
+
+A **Stacking Ensemble Model** was developed using **Random Forest** and **XGBoost Regressors** as base models. The performance of the model was evaluated using the following metrics:
+
+- **R² Score (Coefficient of Determination)**: Measures the proportion of variance in the dependent variable that is predictable from the independent variables.
+- **Mean Squared Error (MSE)**: Represents the average squared difference between the actual and predicted values.
+- **Mean Absolute Error (MAE)**: Measures the average absolute difference between the actual and predicted values.
+
+Additionally, **Actual vs Predicted Efficacy Plots** were generated to visually analyze the model's performance and the alignment between predicted and actual efficacy scores.
+
+These metrics and visualizations provide a comprehensive understanding of the model's accuracy and effectiveness in predicting gRNA efficacy. For detailed results and implementation, refer to the code and documentation in the repository.
 
 ## Visualizations
-Comprehensive visualizations using Plotly include:
-- Histograms + Boxplots for predicted efficacy score distributions
-- Correlation heatmaps of biological and structural features
-- Feature importance plots highlighting key contributors to gRNA efficacy
+
+### Top 10 k-mers
+The **top 10 k-mers** with the highest efficacy scores were identified and visualized. These k-mers represent the most effective sequences based on the user-provided data for CRISPR-Cas prediction. This visualization helps users understand which k-mers are likely to perform best in their experiments.
+
+### Feature Distribution Plots
+Interactive **feature distribution plots** were generated using **Plotly**. These include histograms for all features, allowing users to explore the distribution of each feature in the dataset. The interactive nature of the plots enables users to zoom, hover, and analyze the data in detail.
+
+### Feature Correlation Matrix
+A **feature correlation matrix** was created to visualize the relationships between different features in the dataset. This helps in identifying potential multicollinearity and understanding how features interact with each other.
+
+### Downloadable Visualizations
+All visualizations, including the top 10 k-mers, feature distribution plots, and correlation matrix, are available for users to download and save to their local systems for further analysis or reporting.
+
 
 This pipeline provides an efficient and interpretable framework for gRNA efficacy prediction and CRISPR guide design.
 
