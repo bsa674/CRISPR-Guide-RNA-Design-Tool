@@ -132,11 +132,13 @@ To set up and run this pipeline, follow these steps:
    cd CRISPR-Guide-RNA-Design-Tool
     ```
 2. **Install Dependencies**:
-The required dependencies are listed in the provided dependencies file. Install them using:
- ```bash
- pip install -r requirements.txt
- ```
-***Imp*** : Unzip `env_file.zip` to `CRISPR-Guide-RNA-Design-Tool\.env` and also unzip the model file (`stacking_model.zip`) in the directory `Backend\stacking_model.pkl` to use the pre-trained model for the predictions for the user.
+   The required dependencies are listed in the provided dependencies file. Install them using:
+   ```bash
+    pip install -r requirements.txt
+   ```
+   ***Imp*** 
+     1. Unzip `env_file.zip` to `CRISPR-Guide-RNA-Design-Tool\.env`
+     2. Unzip the model file (`stacking_model.zip`) in the directory `Backend\stacking_model.pkl` to use the pre-trained model for the predictions for the user.
 
 3. **Run the script**
    Open a python terminal in the base directory and write:
