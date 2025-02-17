@@ -29,7 +29,7 @@ def new_project(name = ''):
         st.markdown("## Insert FASTA Sequence",help="Upload DNA sequence in FASTA format")
         project_name = st.text_input("Project Name", value='Project 1' if name == '' else name,help='Set a Unique Name for future accessibility').strip()
 
-        if ss.page_state != 'modify':
+        if ss.page_state != 'modify' and name.strip() == '':
             if not ss.data['Summary'].empty:
                 selectbox_style()
                 option = st.selectbox('Previously Loaded Project Inputs',(ss.data['Summary']['Project Name']),index=None)
@@ -48,6 +48,8 @@ def new_project(name = ''):
 
         else:
             fasta_file = st.file_uploader("Upload FASTA File",type=['txt','fasta'],help='Click on upload and select fasta/text file of your choice')
+            if name not in ss.data['Summary']['Project Name'].unique():
+                return
             sequence = ss.data['Summary'][ss.data['Summary']['Project Name']==name]['Sequence'].to_list()[0]
             fasta_data = f'>{name}\n{sequence}'
             fasta_text = st.text_area("Insert DNA sequence as a FASTA format", value=fasta_data, help='Must be in FASTA format!')
@@ -80,7 +82,7 @@ def new_project(name = ''):
                     return
 
             # This part comes into picture when a new project is being added or modfied as well!
-            elif check_name(ss.data['Summary'],project_name) or name == project_name:
+            elif check_name(ss.data['Summary'],project_name,ss.page_state,name):
                 if validate_fasta(data.strip()):
                     data = str(list(SeqIO.parse(StringIO(data), "fasta"))[0].seq)
 #                    print('Data:',data)
@@ -94,8 +96,10 @@ def new_project(name = ''):
     if results == 1:
         st.success("Processing complete! Redirecting to results...")
         try:
-#            print('While Saving Data:',data)
-            ss.data = save_project(project_name, data, df, ss.data) # Save's Data and also updates ss.data
+            if ss.page_state == 'modify':
+                ss.data = replace_project(ss.data, name, project_name, data, df)
+            else:
+                ss.data = save_project(project_name, data, df, ss.data) # Save's Data and also updates ss.data
         except:
             st.error("Failed to Save! Fix Code")
             print_exc()
@@ -112,6 +116,8 @@ def new_project(name = ''):
 
 def modify(name):
     """"Modifies the project name/sequence"""
+    if name == '':
+        return
     new_project(name=name.strip())
 
 def delete(sheet_name_to_remove):
