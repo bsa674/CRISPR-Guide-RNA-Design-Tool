@@ -126,7 +126,7 @@ To set up and run this pipeline, follow these steps:
 
 1. **Clone the GitHub Repository**:  
    ```bash
-   git clone [<repository_url>](https://github.com/bsa674/CRISPR-Guide-RNA-Design-Tool.git)
+   git clone https://github.com/bsa674/CRISPR-Guide-RNA-Design-Tool.git
    ```
    ```
    cd CRISPR-Guide-RNA-Design-Tool
