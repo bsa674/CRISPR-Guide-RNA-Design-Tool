@@ -61,6 +61,7 @@ authenticator = stauth.Authenticate(
 )
 
 try:
+    os.makedirs('data', exist_ok=True)
     if ss.username!='admin':
         if 'datapath' not in ss.keys():
             ss.datapath = os.path.join(os.getcwd(),f'data/{ss.username}.xlsx')
