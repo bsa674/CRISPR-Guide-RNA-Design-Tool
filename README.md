@@ -2,7 +2,7 @@
 
 <p align="center">
  
-<img src="circular_logo.png" align="center" width="300" height="300" >
+<img src="images/circular_logo.png" align="center" width="300" height="300" >
 </p>
 
 ## Description
