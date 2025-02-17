@@ -18,8 +18,6 @@ And incase the Admin logins, the following tabs are displayed:
 Date of Modified : 17th February, 2025
 '''
 
-
-
 import streamlit as st
 from streamlit import session_state as ss
 from PIL import Image
@@ -90,37 +88,30 @@ try:
         tab1, tab4, tab5, tab2, tab6, tab3 = st.tabs(["Homepage :derelict_house_building:", 'New Project:bulb:', 'Results :chart_with_upwards_trend:', "About :technologist:", 'Profile Settings :gear:', "Logout :arrow_right_hook:"])
         with tab1:
             set_background("images/castor_bg4.jpg")
-        #    print("Entered Home Page")
             homepage(ss.username)
 
         with tab4:
             set_background("images/castor_bg4.jpg")
-        #    print("Entered New Project")
             new_project()
 
         with tab5:
             set_background("images/castor_bg4.jpg")
-        #    print("Entered Results ")
             view_results()
 
         with tab6:
             set_background("images/castor_bg4.jpg")
-        #    print("Entered Profile Settings")
             change_details()
 
         with tab2:
             set_background("images/castor_bg4.jpg")
-        #    print("Entered About")
             about()
 
         with tab3:
             set_background("images/castor_bg4.jpg")
-        #    print("Entered Logout")
-            ss.page_state='logout'
             st.subheader('Are you sure ?:crying_cat_face:')
             if st.button("logout"):
                 authenticator.logout()
-                ss.page_state = 'login'
+                ss.page_state = 'logout'
                 ss.logout = True
                 ss.authentication_status = None
                 ss.username = None
@@ -129,29 +120,24 @@ try:
         tab1,tab4,tab2,tab3 = st.tabs(['User Statistics','User Directory','Model Updation','logout'])
         ss.page_state = 'admin'
         with tab1:
-        #    set_background("images/castor_bg4.jpg")
-        #    print("Entered Admin Dashboard")
+            set_background("images/castor_bg4.jpg")
             admin_dasboard()
 
         with tab2:
-        #    print("Model Updation")
+            set_background("images/castor_bg4.jpg")
             st.title('Model Updation')
             regenerate_model()
-#            st.subheader('This part is under development')
-
 
         with tab4:
-        #    print("User Directory")
+            set_background("images/castor_bg4.jpg")
             st.title('User Directory')
             user_directory()
-#            st.subheader('This is under development')
 
         with tab3:
-        #    print("Entered Logout")
-            ss.page_state='logout'
+            set_background("images/castor_bg4.jpg")
             st.subheader('Are you sure ?:crying_cat_face:')
             if st.button("logout"):
-                ss.page_state = 'login'
+                ss.page_state='logout'
                 authenticator.logout()
                 ss.logout = True
                 ss.authentication_status = None
@@ -165,7 +151,3 @@ except KeyboardInterrupt:
     ss.logout = True
     ss.clear()
     print('Exiting now!')
-# else:
-#     st.warning("You need to log in first.")
-#     st.switch_page("pages/login.py")  # Redirect to login if not authenticated
-
