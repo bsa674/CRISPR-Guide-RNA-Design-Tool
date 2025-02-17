@@ -276,21 +276,34 @@ def footer():
             st.markdown("<p style='text-align: right; color: white;'>© 2025 Castor<p>", unsafe_allow_html=True)
 
 
-def check_name(df,project_name):
+def check_name(df,project_name,pg_state='add',name=''):
     """Checking if the project name already exists?
     """
-    if project_name == '':
-        st.error(f'Project Name cannot be blank!')
+    if not project_name.strip():
+        st.error("Project Name cannot be blank!")
         return False
 
-    if df.empty or df.shape[0] == 0 or 'Project Name' not in df.columns:
+    if df.empty or 'Project Name' not in df.columns:
         return True
 
-    if project_name not in df['Project Name'].unique():
-        return True
+    existing_names = [i for i in df['Project Name'].unique() if i != name]
 
-    st.error(f'{project_name} already exists (try something like "name_v1.1")')
-    return False
+    if pg_state == 'modify':
+        if name == project_name:
+            print("Project name unchanged, modification allowed.")
+            return True
+
+        if project_name in existing_names:
+            st.error(f'"{project_name}" already exists! Try something like "{project_name}_v1.1".')
+            print("Error: New project name already exists.")
+            return False
+    else:
+        if project_name in existing_names:
+            st.error(f'"{project_name}" already exists! Try something like "{project_name}_v1.1".')
+            print("Error: Project name already exists.")
+            return False
+
+    return True
 
 
 def validate_fasta(data):
@@ -325,6 +338,23 @@ def check_dup_rows(df, new_row):
         df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
     return df
 
+def replace_project(df, name, project_name, ip, op):
+    """Replace an existing project with new details."""
+    now = datetime.now()
+    timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
+
+    df['Summary'].loc[df['Summary']['Project Name'] == name, 'Project Name'] = project_name
+    df['Summary'].loc[df['Summary']['Project Name'] == project_name, 'Sequence'] = ip
+    df['Summary'].loc[df['Summary']['Project Name'] == project_name, 'Base pairs'] = len(ip)
+    df['Summary'].loc[df['Summary']['Project Name'] == project_name, 'Timestamp'] = timestamp
+    df[project_name] = op
+
+    with pd.ExcelWriter(ss.datapath, engine="openpyxl") as writer:
+        for sheet_name, sheet in df.items():
+            sheet.to_excel(writer, sheet_name=sheet_name, index=False)
+
+    return df
+
 def save_project(project_name, ip, op, df):
     """Save project details and results to an Excel file
     """
@@ -340,15 +370,8 @@ def save_project(project_name, ip, op, df):
     df['Summary'] = pd.concat([df['Summary'], pd.DataFrame([new_row])], ignore_index=True) # New entry added to Summary sheet
     df[project_name] = op
 
-    # Write all sheets back to the file
-
-#    print(ss.datapath)
-    # print(df.columns)
-
     with pd.ExcelWriter(ss.datapath, engine="openpyxl") as writer:
         for sheet_name, sheet in df.items():
-            if sheet_name == project_name:
-                continue
             sheet.to_excel(writer, sheet_name=sheet_name, index=False)
 
     return df
