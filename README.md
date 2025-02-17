@@ -136,7 +136,7 @@ To set up and run this pipeline, follow these steps:
    ```bash
     pip install -r requirements.txt
    ```
-   ***Imp*** 
+   **Imp** 
      1. Unzip `env_file.zip` to `CRISPR-Guide-RNA-Design-Tool\.env`
      2. Unzip the model file (`stacking_model.zip`) in the directory `Backend\stacking_model.pkl` to use the pre-trained model for the predictions for the user.
 
