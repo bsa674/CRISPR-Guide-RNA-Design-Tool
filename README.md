@@ -76,7 +76,17 @@ A **Streamlit**-based web application has been developed to provide a user-frien
 - **Download Visualizations**: All visualizations, including the top 10 k-mers, feature distribution plots, and correlation matrix, are available for download.
 
 #### Accessibility
-The application is designed to be accessible to both **computational** and **experimental researchers**, ensuring a seamless experience for users with varying levels of technical expertise.
+Our application is designed to be user-friendly and accessible to a wide range of users, including both computational and experimental researchers. Whether you're a seasoned developer or new to data analysis, the application ensures a seamless experience for users with varying levels of technical expertise.
+
+Web-Based Interface
+The application is built using Streamlit, a powerful framework for creating interactive web applications. This allows users to access the platform directly from their web browsers without the need for complex installations or setups.
+
+Key Features:
+Login/Signup: Users can easily create an account or log in to access personalized features and save their work.
+
+Task Execution: Perform a variety of tasks directly through the intuitive interface.
+
+Visualization: View and interact with results through dynamic visualizations, making it easier to interpret data and draw insights.
 
 
 ## Statistical Analysis and Model Performance
@@ -123,6 +133,13 @@ The required dependencies are listed in the provided dependencies file. Install 
  ```bash
   pip install -r requirements.txt
  ```
+3. **Run the script**
+   Open a python terminal in the base directory and write:
+   ```bash
+   `streamlit run ./main.py
+   ```
+   Note: Unzip the pkl model file (`stacking_model.zip`) in the directory `Backend\stacking_model.pkl` to use the pre-trained model for the predictions for the user.
+         Alternatively, you can login as a admin and create the model file.
 ----
 ## Timeline
 ![An example schedule](timeline.png)
