@@ -107,7 +107,7 @@ def regenerate_model():
                                 st.write(f"Mean Absolute Error: {mae}")
                                 st.write(f"R2 Score: {r2}")
                                 print('Plotting')
-                                for plot in os.listdir('feature_plots'):
+                                for plot in os.listdir('Backend/feature_plots'):
                                     st.image(f'Backend/feature_plots/{plot}')  # Display all plots
 
                 #                deploy = st.radio("Do you want to deploy this model for your users?", ('No', 'Yes'),index=None)
