@@ -206,7 +206,7 @@ def visualize_features(X: pd.DataFrame):
 
 
 # Function to predict efficacy scores for k-mers
-def predict_efficacy_scores(sequence, model_path='Working_part/stacking_model.pkl'):
+def predict_efficacy_scores(sequence, model_path='Backend/stacking_model.pkl'):
     logger.info(f"Input sequence provided")
     try:
         # Generate k-mers
