@@ -2,6 +2,7 @@
 Script to predict efficacy scores for k-mers using a saved model. The k-mers are generated form the user specified input 
 and after calculating the features, the model is used to predict the efficacy scores. The predicted scores are then shown to the user.
 The script also contains various visualization functions for the feature distributions and correlations.
+Authors: Zeynep Aslan and Mateo Carvajal
 """
 
 # Importing required libraries
@@ -13,7 +14,7 @@ import logging
 import plotly.express as px
 import plotly.graph_objects as go
 from traceback import print_exc
-
+# Zeynep Aslan
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -129,6 +130,9 @@ def calculate_features(seq):
         logger.error(f"Error calculating features for sequence: {seq}. Error: {str(e)}")
         print_exc()
         return None
+
+# Mateo Carvajal
+
 def visualize_features(X: pd.DataFrame):
     try:
         logging.info("Visualizing feature distributions and correlations...")
