@@ -131,12 +131,12 @@ To set up and run this pipeline, follow these steps:
 2. **Install Dependencies**:
 The required dependencies are listed in the provided dependencies file. Install them using:
  ```bash
-  pip install -r requirements.txt
+ pip install -r requirements.txt
  ```
 3. **Run the script**
    Open a python terminal in the base directory and write:
    ```bash
-   `streamlit run ./main.py
+   streamlit run ./main.py
    ```
    Note: Unzip the pkl model file (`stacking_model.zip`) in the directory `Backend\stacking_model.pkl` to use the pre-trained model for the predictions for the user.
          Alternatively, you can login as a admin and create the model file.
