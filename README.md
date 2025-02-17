@@ -121,6 +121,7 @@ All visualizations, including the top 10 k-mers, feature distribution plots, and
 ----
 ## Installation and Usage
 
+Requires Python v3.12.7 and above.
 To set up and run this pipeline, follow these steps:  
 
 1. **Clone the GitHub Repository**:  
