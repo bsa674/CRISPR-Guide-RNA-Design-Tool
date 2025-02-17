@@ -1,0 +1,16 @@
+Bio==1.7.1
+biopython==1.85
+firebase_admin==6.6.0
+matplotlib==3.10.0
+numpy==2.2.3
+pandas==2.2.3
+Pillow==11.1.0
+plotly==6.0.0
+python-dotenv==1.0.1
+scikit_learn==1.6.1
+seaborn==0.13.2
+sendgrid==6.11.0
+streamlit==1.41.1
+streamlit_authenticator==0.4.1
+xgboost==2.1.4
+ViennaRNA==2.7.0
