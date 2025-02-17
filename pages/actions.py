@@ -16,7 +16,7 @@ from traceback import print_exc
 from Bio import SeqIO
 from io import StringIO
 
-from pages.functions import footer, check_name, validate_fasta, save_project, show_results, change_project_name, form_glass_bg,selectbox_style
+from pages.functions import footer, check_name, validate_fasta, save_project, replace_project, show_results, change_project_name, form_glass_bg,selectbox_style
 from Backend.model_usage import predict_efficacy_scores
 
 def new_project(name = ''):
