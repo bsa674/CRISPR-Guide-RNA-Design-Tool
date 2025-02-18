@@ -1,3 +1,13 @@
+'''
+Author : Pablo Alarcón
+
+File description :
+This file contains the forgot_password Streamlit page, which is connected to the login.py page to facilitate password recovery via email using SendGrid.
+Users must configure their own Firestore and SendGrid API keys, which should be securely stored in an environment variables file (.env)
+
+Date of modified : 18th February, 2025
+'''
+#Load required libraries and modules
 import streamlit as st
 from streamlit import session_state as ss
 from PIL import Image
@@ -19,6 +29,7 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 from main import set_background
 
+#Firestore credentials/key
 load_dotenv()
 private_key = os.getenv('FIREBASE_PRIVATE_KEY')
 if private_key is None:
@@ -44,14 +55,15 @@ database = firestore.client()
 collection_fb = database.collection("CASTOR")
 
 
-
+#SendGrid Key
 sendgrid_api_key = os.getenv("SENDGRID_API_KEY")
 
+#Background function
 set_background("images/castor_bg4.jpg")
-
+#Getting users from the 
 auth_credentials = get_auth_credentials()
 
-# Initialize authenticator
+#Initialize the authenticator object to manage user authentication and session state using cookies
 authenticator = stauth.Authenticate(
     auth_credentials,
     cookie_name="castor",
@@ -59,6 +71,8 @@ authenticator = stauth.Authenticate(
     cookie_expiry_days=5,
     preauthorized={}
 )
+
+#Page styling
 with st.container():
     forgot_lspace, forgot_space, forgot_rspace = st.columns(3)
 
@@ -83,17 +97,17 @@ with st.container():
             if username_of_forgotten_password:
                 st.success('New password generated. Updating database...')
 
-                # Hash the new password before storing it
+                #Hash the new password before storing it
                 hashed_new_password = stauth.Hasher.hash(new_random_password)
 
-                # Update Firestore with the new password
+                #Update Firestore database with the new password
                 try:
                     user_ref = collection_fb.document(username_of_forgotten_password)
                     user_ref.update({"password": hashed_new_password})
 
                     st.success("Password updated successfully in Firestore. Sending email...")
 
-                    # Send the new password via email
+                    #Send the new password via email
                     if sendgrid_api_key:
                         subject = "Your New Password"
                         message = f"""
@@ -110,14 +124,14 @@ with st.container():
                         try:
                             sg = SendGridAPIClient(sendgrid_api_key)
                             email_message = Mail(
-                                from_email="castorguiderna@hotmail.com",  # Verified sender email
+                                from_email="castorguiderna@hotmail.com",  #Verified sender email
                                 to_emails=email_of_forgotten_password,
                                 subject=subject,
                                 plain_text_content=message
                             )
                             response = sg.send(email_message)
 
-                            if response.status_code == 202:
+                            if response.status_code == 202: #HTTP status code returned by SendGrid, meaning: acepted
                                 st.success("New password sent to your email. Check your inbox.")
                             else:
                                 st.error(f"Failed to send email. Status code: {response.status_code}")
