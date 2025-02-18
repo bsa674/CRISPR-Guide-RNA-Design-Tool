@@ -1,4 +1,14 @@
-#Login page
+'''
+Author : Pablo Alarcón
+
+File description :
+This file contains the Streamlit login.py page to enable the users login with their credentials stored in the Firestore database with the signup.py file. 
+The email should be verified using the OTP code sended by SendGrid to the user.
+Users must configure their own Firestore and SendGrid API keys, which should be securely stored in an environment variables file (.env)
+
+Date of modified : 18th February, 2025
+'''
+#Load required libraries and modules
 import streamlit as st
 from streamlit import session_state as ss
 from PIL import Image
@@ -24,9 +34,10 @@ from dotenv import load_dotenv
 from pages.functions import footer,set_background,button_style
 from pages.signup import generate_otp,send_otp_email
 
-# Use relative path to load the image
+#Background
 set_background("images/castor_bg4.jpg")
 
+#Firestore database key/credentials
 private_key = os.getenv('FIREBASE_PRIVATE_KEY')
 if private_key is None:
     raise ValueError("FIREBASE_PRIVATE_KEY is missing from the environment variables")
@@ -50,15 +61,14 @@ if not firebase_admin._apps:
     cred = credentials.Certificate(firebase_credential)
     firebase_admin.initialize_app(cred)
 
-#Firebase data base
 database = firestore.client()
 collection_fb = database.collection("CASTOR")
 users = collection_fb.stream()
 
-
+#Function to verify the user email account with the OTP sended by email using SendGrid
 def update_credentails():
     otp = generate_otp()
-    sendgrid_api_key = os.getenv("SENDGRID_API_KEY")  # Load API Key
+    sendgrid_api_key = os.getenv("SENDGRID_API_KEY")  #Load API Key
     if sendgrid_api_key:
         credentials = collection_fb.document(ss.name).get().to_dict()
         send_otp_email(credentials['email'], otp, sendgrid_api_key)
@@ -67,9 +77,10 @@ def update_credentails():
     ss.page_state = 'verify_email'
     st.switch_page("./pages/verify_email.py")
 
-#Fetch user
+#Get authenticator credentials from Firestore database
 auth_credentials = get_auth_credentials()
 
+#Initialize the authenticator object to manage user authentication and session state using cookies
 authenticator = stauth.Authenticate(
     auth_credentials,
     cookie_name="castor",
@@ -81,6 +92,7 @@ authenticator = stauth.Authenticate(
 if 'logout' in ss.keys():
     ss.logout = True
 
+#Page style
 with st.container():
     left_space, login_space, right_space = st.columns(3)
     with login_space:
@@ -94,7 +106,8 @@ with st.container():
                 ss.page_state = 'main'
                 st.switch_page("./main.py")
             button_style()
-
+            
+#Login page using streamlit authenticator
     with login_space:
         try:
             authenticator.login(key='Login', location='main', captcha=True,fields={'Captcha': 'Type the code from the image'})
@@ -119,7 +132,8 @@ with st.container():
                 st.switch_page('pages/after_login.py')
         else:
             pass
-
+            
+#Additional widgets for the login page
     with login_space:
         col1, col2, col3 = st.columns([1.6,2,2])
 
