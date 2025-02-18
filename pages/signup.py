@@ -1,3 +1,15 @@
+'''
+Author : Pablo Alarcón
+
+File description :
+This file contains the Streamlit signup.py page to enable the users signup using their credentials that will be stored in the Firestore database+¿, 
+When a new user is created, the email should be verified using the OTP code sended by SendGrid to the user.
+Users must configure their own Firestore and SendGrid API keys, which should be securely stored in an environment variables file (.env)
+
+Date of modified : 18th February, 2025
+'''
+#Load required libraries and modules
+import streamlit as st
 import streamlit as st
 from streamlit import session_state as ss
 from PIL import Image
@@ -21,11 +33,11 @@ from dotenv import load_dotenv
 from pages.functions import set_background,button_style,footer,form_glass_bg
 
 
-
+#Background
 set_background("images/castor_bg4.jpg")
 button_style()
 
-# Load environment variables from the .env file
+#Load environment variables from the .env file, Firestore and SenGrid keys
 load_dotenv()
 private_key = os.getenv('FIREBASE_PRIVATE_KEY')
 if private_key is None:
@@ -56,6 +68,7 @@ if not firebase_admin._apps:
 database = firestore.client()
 collection_fb = database.collection("CASTOR")
 
+#Function for store the credentials of the new user with the Firestore database document specific structure
 def insert_user(email, password, username, date_joined=str(datetime.datetime.now())):
     try:
         # Insert user data into Firestore (this stores the user info)
@@ -69,18 +82,18 @@ def insert_user(email, password, username, date_joined=str(datetime.datetime.now
             'email_verified': False,
             'email_verification_code': otp
         }
-        # Insert user data into Firestore under the 'username' document
+        #Insert user data into Firestore under the 'username' document
         collection_fb.document(username).set(user_data)
 
-        # Fetch the user's document from Firestore
+        #Fetch the user's document from Firestore
         user_ref = collection_fb.document(username)
         user_doc = user_ref.get()
 
         if not user_doc.exists:
             return {"success": False, "message": "User document not found in Firestore."}
 
-            # Send OTP email
-        sendgrid_api_key = os.getenv("SENDGRID_API_KEY")  # Load API Key
+            #Send OTP email
+        sendgrid_api_key = os.getenv("SENDGRID_API_KEY")  #Load API Key
         if sendgrid_api_key:
             send_otp_email(email, otp, sendgrid_api_key)
             return {"success": True, "message": f"User {email} inserted and OTP sent successfully."}
@@ -90,8 +103,8 @@ def insert_user(email, password, username, date_joined=str(datetime.datetime.now
     except Exception as e:
         return {"success": False, "message": str(e)}
 
+#For return a dictionary of the users that are stored in Firebase
 def fetch_users():
-    #For return a dictionary of the users that are stored in Firebase
     try:
         docs = collection_fb.stream()
         users = []
@@ -106,7 +119,7 @@ def fetch_users():
     except Exception as e:
         print(f"An error occurred: {e}")
         return []
-
+#For get the user emails stored in Firestore database
 def get_user_emails():
     try:
         docs = collection_fb.stream()
@@ -119,6 +132,8 @@ def get_user_emails():
     except Exception as e:
         print(f"An error occurred: {e}")
         return []
+        
+#For get the usernames stored in Firestore database
 def get_usernames():
     try:
         docs = collection_fb.stream()
@@ -131,15 +146,17 @@ def get_usernames():
     except Exception as e:
         print(f"An error occurred: {e}")
         return []
-
+#For ensure that the email inserted is valid using regular expressions 
 def valid_email(email):
     #For check email validity
     pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
     return bool(re.match(pattern, email))
-
+    
+#For generate the OTP code that will be send using SendGrid
 def generate_otp():
     return str(random.randint(100000, 999999))
 
+#Function for sending an email with the OTP code when a new user is created 
 def send_otp_email(email, otp, sendgrid_api_key):
     try:
         sender_email = "castorguiderna@hotmail.com"  # Your verified sender email in SendGrid
@@ -173,17 +190,14 @@ def send_otp_email(email, otp, sendgrid_api_key):
     except Exception as e:
         st.error(f"Error sending OTP email to {email}: {e}")
         return False
-
+#For ensure that the username inserted is valid using regular expressions 
 def valid_username(username):
     #For check username validity
     pattern = "^[a-zA-Z0-9_]*$"
     return bool(re.match(pattern, username))
-
-
+#Signup function developed using st.form(), because streamlit authenticator did not allow us to use a signup function
 def signup():
-    # Create form container with glass effect
     with st.form(key="signup", clear_on_submit=True):
-    # Add the glass-form class using markdown
         email = st.text_input("Email", placeholder="Write your email")
         username = st.text_input("Username", placeholder="Write your name")
         password = st.text_input("Password", placeholder="Write a password", type="password")
@@ -224,7 +238,7 @@ def signup():
                 st.warning("Email field is required")
     form_glass_bg()
 
-
+#Page style
 if __name__ == "__main__":
     with st.container():
         l_space, signup_space, r_space = st.columns(3)
