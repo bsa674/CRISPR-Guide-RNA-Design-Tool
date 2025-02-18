@@ -145,6 +145,12 @@ To set up and run this pipeline, follow these steps:
    ```bash
    streamlit run ./main.py
    ```
+4. **Create a Project**
+   Visit the webpage to log in or sign up and create your project.
+
+   For reference, we have provided two example files in the `Test/` folder. You can either upload these files directly or copy-paste the sequences into the project.
+
+   If you face any issues,kindly contact us via e-mail.
 ----
 ## Timeline
 ![An example schedule](timeline.png)
