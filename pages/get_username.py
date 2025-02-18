@@ -1,3 +1,13 @@
+'''
+Author : Pablo Alarcón
+
+File description :
+This file contains the get_username Streamlit page, which is connected to the login.py page to facilitate username recovery via email using SendGrid.
+Users must configure their own Firestore and SendGrid API keys, which should be securely stored in an environment variables file (.env)
+
+Date of modified : 18th February, 2025
+'''
+#Load required libraries and modules
 import streamlit as st
 from streamlit import session_state as ss
 from PIL import Image
@@ -15,12 +25,13 @@ from sendgrid.helpers.mail import Mail
 from dotenv import load_dotenv
 from pages.functions import set_background, form_glass_bg
 
+#SendGrid Key
 load_dotenv()
 sendgrid_api_key = os.getenv("SENDGRID_API_KEY")
 
 auth_credentials = get_auth_credentials()
 
-# Initialize authenticator
+#Initialize the authenticator object to manage user authentication and session state using cookies
 authenticator = stauth.Authenticate(
     auth_credentials,
     cookie_name="castor",
@@ -29,6 +40,7 @@ authenticator = stauth.Authenticate(
     preauthorized={}
 )
 set_background("images\castor_bg4.jpg")
+#Page style
 with st.container():
     getuser_lspace, getuser_space, getuser_rspace = st.columns(3)
 
@@ -42,7 +54,7 @@ with st.container():
             if st.button('Login', icon=":material/login:", use_container_width=True):
                 ss.page_state = 'login'
                 st.switch_page("./pages/login.py")
-
+                
     with getuser_space:
         try:
             username_of_forgotten_username, email_of_forgotten_username = authenticator.forgot_username(
@@ -52,7 +64,7 @@ with st.container():
             if username_of_forgotten_username:
                 st.success("Username found. Sending email...")
 
-                # Send the username via email
+                #Send the username via email
                 if sendgrid_api_key:
                     subject = "Your Username Recovery"
                     message = f"""
@@ -69,14 +81,14 @@ with st.container():
                     try:
                         sg = SendGridAPIClient(sendgrid_api_key)
                         email_message = Mail(
-                            from_email="castorguiderna@hotmail.com",  # Verified sender email
+                            from_email="castorguiderna@hotmail.com",  #Verified sender email
                             to_emails=email_of_forgotten_username,
                             subject=subject,
                             plain_text_content=message
                         )
                         response = sg.send(email_message)
 
-                        if response.status_code == 202:
+                        if response.status_code == 202: #HTTP status code returned by SendGrid, meaning: Accepted
                             st.success("Your username has been sent to your email. Check your inbox.")
                         else:
                             st.error(f"Failed to send email. Status code: {response.status_code}")
