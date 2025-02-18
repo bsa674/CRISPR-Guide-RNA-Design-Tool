@@ -60,7 +60,7 @@ sendgrid_api_key = os.getenv("SENDGRID_API_KEY")
 
 #Background function
 set_background("images/castor_bg4.jpg")
-#Getting users from the 
+#Getting users from the Firestore database
 auth_credentials = get_auth_credentials()
 
 #Initialize the authenticator object to manage user authentication and session state using cookies
@@ -72,7 +72,7 @@ authenticator = stauth.Authenticate(
     preauthorized={}
 )
 
-#Page styling
+#Page style
 with st.container():
     forgot_lspace, forgot_space, forgot_rspace = st.columns(3)
 
