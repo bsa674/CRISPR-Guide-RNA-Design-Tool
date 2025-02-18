@@ -1,3 +1,14 @@
+'''
+Author : Pablo Alarcón
+
+File description :
+This file contains the Streamlit verify_email.py page to enable the users verify their email after the signup. 
+When a new user is created, the email should be verified using the OTP code sended by SendGrid to the user.
+Users must configure their own Firestore and SendGrid API keys, which should be securely stored in an environment variables file (.env)
+
+Date of modified : 18th February, 2025
+'''
+#Load required libraries and modules
 import streamlit as st
 from streamlit import session_state as ss
 import os
@@ -15,6 +26,7 @@ from firebase_admin import firestore
 from dotenv import load_dotenv
 from pages.functions import set_background, button_style
 
+#Load Firestore database and SendGrid keys/credentials
 load_dotenv()
 private_key = os.getenv('FIREBASE_PRIVATE_KEY')
 if private_key is None:
@@ -40,7 +52,7 @@ if not firebase_admin._apps:
 database = firestore.client()
 collection_fb = database.collection("CASTOR")
 
-
+#Function to verify the email with an OTP code and Update the Firestore database
 def verify_email():
     st.info('Please find the OTP in your mailbox by castorguiderna@hotmail.com and enter it below.')
     username = st.text_input("Username", placeholder="Enter your username")
@@ -56,12 +68,12 @@ def verify_email():
             if stored_otp and stored_otp == otp_input:
                 collection_fb.document(username).update({"email_verified": True})
                 st.switch_page("./pages/login.py")
-#                st.success("Email verified successfully! You can now log in.")
+                st.success("Email verified successfully! You can now log in.")
             else:
                 st.error("Invalid OTP. Please try again.")
         else:
             st.error("User not found.")
-
+#Page style
 set_background("images/castor_bg4.jpg")
 with st.container():
     left_verify_space, verify_space, right_verify_space = st.columns(3)
